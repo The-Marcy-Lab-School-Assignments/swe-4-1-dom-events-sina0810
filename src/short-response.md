@@ -36,6 +36,13 @@ But an error is thrown.
 3. What can be done to fix it?
 
 **Your Answer:**
+- The main error is because of the JavaScript tag element that has been declared at the head of the HTML file, and the `style.color` can't be read yet because the browser has not loaded the HTML elements yet.
+
+- The error occurs because the JavaScript file runs before the HTML elements are loaded. 
+- Since code runs line by line it first executes the JavaScript, but the button element does not exist yet. 
+
+- In order to fix this issue, we should move the JavaScript tag <script src="index.js"></script> to the bottom of the <body>, so that the script runs after the HTML elements are loaded.
+
 
 ## Question 2: event.target vs event.currentTarget
 
@@ -60,6 +67,13 @@ div.addEventListener('click', (event) => {
 When a user clicks the button, both `event.target` and `event.currentTarget` are logged. Explain what each property represents in this scenario and why they might be different.
 
 **Your Answer:**
+- When the user clicks on the parent container in that case that would be `button-container` it will target two things:
+- First the `event.target` refers to the actual element that was click first, the element is the *button* itself because this is the main element. 
+
+- Second, we have `event.currentTarget` which refers to the `div` itself, the `addEventListener` is attached to the div element where the event click would happen. 
+
+- The main difference is that the click event bubbles up from the button to the div, and from there the div itself handles the event. 
+
 
 ## Question 3: Creating Elements Dynamically
 
@@ -95,7 +109,8 @@ document.body.append(productCard);
 However, when the page loads and the code is executed, the user isn't able to see the image, product name or product price. What is the issue with this code?
 
 **Your Answer:**
-
+- In the code above we have elements created, however they have never been added inside of the card itself. 
+- In another words they have not been `append` to the card, that is why the browser can not read them. 
 
 ## Question 4: Event Delegation and event.target.closest()
 
@@ -135,6 +150,11 @@ todoList.addEventListener('click', (event) => {
 2. Explain what the `event.target.closest('li')` method does and why it is essential to this approach.
 
 **Your Answer:**
+- The name approach to this is called event delegation. We attached an event listener to the parent, which is the `#todo-list`. 
+- The alternative approach is we can and an event listener to every `li`, and it will still do the same as we add to the parent element.
+- However, the delegation approach is much better because one listener handles all the item, and easier to maintain or debug, also where would be less line of code. 
+
+
 
 ## Question 5: NodeList
 
@@ -144,3 +164,18 @@ Do some independent learning and reading about the `querySelectorAll()` method. 
 2. What is the difference between a `NodeList` and an array? Why is it important to know this difference?
 
 **Your Answer:**
+- The difference between `querySelectorAll()` and `querySelector()` is that the `querySelectorAll()` returns a list of elements that match the selector.
+
+- On the other hand, the `querySelector()` is used to returns an element that matches the CSS selector this is used when we only want to select one element. 
+
+Here is an example of using `querySelectorAll()`:
+```JS
+const selected = document.querySelectorAll('div')
+```
+
+- The difference between `NodeList` and an array is a few things that created a big gap between their functionality and usability: 
+- A `NodeList` comes from DOM, and it has limited array methods which means not all the array methods will work for it. 
+
+- An `array` is a JavaScript data structure.
+- It can store different types of data, such as: objects, numbers, strings, booleans, ect. Any array methods can be used with Array. 
+- We can also change the array anytime we want we can push elements or shift elements, ect. 
