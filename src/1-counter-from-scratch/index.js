@@ -5,10 +5,8 @@ const reset = document.querySelector('#reset')
 let count = 0
 
 button.addEventListener('click', () =>{
-    {
         count++
         header.textContent = `${count}`
-    }
 })
 reset.addEventListener('click', ()=>{
     count = 0

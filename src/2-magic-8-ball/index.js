@@ -33,13 +33,13 @@ TODO:
 const ask = document.querySelector('#ask-btn')
 const EightBall = document.querySelector('#eight-ball')
 const answer = document.querySelector('#answer')
-const eight = document.querySelector('#eight')
 
-ask.addEventListener('click', ()=>{
-  EightBall.style.display = 'randomChoice';
-  eight.style.display = 'none'
-  answer.style.display = 'block'
+ask.addEventListener('click', () => {
+  EightBall.style.display = none;
+
 
   const randomChoice = Math.floor(Math.random() * fortunes.length)
   answer.textContent = fortunes[randomChoice]
+
+  answer.style.display = 'block'
 })

@@ -49,13 +49,13 @@ playlists.forEach((song) =>{
   songTitle.textContent = song.title
 
   // append
-  songLi.append(songTitle, songImage);
+  songLi.append(songImage, songTitle);
   playSong.append(songLi);
 })
 // added an event listner
 const playlistGrid = document.querySelector('#playlists-grid')
 playlistGrid.addEventListener('click', event =>{
-  addClicked = event.target.closest('.playlist-card')
+  const addClicked = event.target.closest('.playlist-card')
   if (!addClicked){
     return;
     
