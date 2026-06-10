@@ -1,0 +1,57 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+:root{
+    --primary-color: black;
+
+
+}
+ body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20% 10%;
+    font-size: 60px;
+    background-color: var(--primary-color);
+ }
+
+ button{
+    font-size: 32px;
+    padding: 10px;
+    border-radius: 10px;
+    color: blueviolet;
+ }
+ body button:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0px 20px 60px rgb(221, 8, 8);
+    transition: 0.2s;
+    background-color: white;
+ }
+ h1{
+    color: white;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+ }
+ .cantainer{
+    padding: 50px;
+    border: 1px solid white;
+    box-shadow: 0px 0px 90px rgb(146, 3, 255);
+    border-radius: 8px;
+ }
+ @keyframes slideLeft {
+    from {transform: translateY(-300px);}
+
+    to {transform: translateY(0px)
+    }
+ }
+ .cantainer{
+    animation: slideLeft 1s ease-in;
+
+ }

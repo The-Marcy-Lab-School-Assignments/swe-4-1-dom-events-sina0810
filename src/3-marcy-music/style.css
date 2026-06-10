@@ -109,7 +109,11 @@ main h2 {
 
 .playlist-card.selected {
   border-color: var(--color-primary);
+  cursor: pointer;
 }
+/* .playlist-card:hover{
+  cursor: pointer;
+} */
 
 .playlist-card img {
   width: 100px;
